@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lizard</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='naama.png') }}">
+
+
+</head>
+<body style="background-image:url(static/wallpaper.jpg); color:#F26B6B">
+<center>
+        <strong><nav>
+            <a href="{{ url_for('home') }}" style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   About &nbsp; &nbsp;</a>
+            <a href="{{ url_for('Logout') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Logout &nbsp;&nbsp;</a>
+            <a href="{{ url_for('foryou') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   For You &nbsp;&nbsp;</a>
+            <a href="{{ url_for('PersonalArea') }}" style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Personal Area &nbsp; &nbsp;</a>
+            <a href="{{ url_for('Search') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Search &nbsp;&nbsp;</a>
+
+        </nav></strong>    {% block content %}
+
+<h1> For You Page</h1>
+<h2> In this page you will find all of the images everyone ever posted </h2>
+    {% for hist in hists %}
+    <img src="{{hist}}" alt="{{hist}}" width="300" height="300"></br></br></br>
+    {% endfor %}
+{% endblock %}
+</center>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lizard</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='naama.png') }}">
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</head>
+<body style="background-image:url(static/wallpaper.jpg); color:#F26B6B">
+  {% extends "index.html" %}
+    {% block content %}
+<h1 style="font:Arial; color:#F26B6B; size: 45", align="center">Login</h1>
+<center>
+    <form  name="login" id="login" method="post" action="" >
+    <table style="align-content:center">
+        <br/>
+        <tr><td> Username:  </td><td> <input type="text" name="username" id="username" /></td></tr>
+        <tr><td> Password:  </td><td> <input type="password" name="password" id="password" /></td></tr>
+
+    </table>
+                <input style="align-content:center" type="submit" name="submit" value="הכנס" />
+        <input type="reset" name="reset" value="נקה" />
+    </form>
+
+</center>
+{% endblock %}
+</body>
+</html>

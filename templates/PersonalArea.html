@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Lizard</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='naama.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />       
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body style="background-image:url(static/wallpaper.jpg); color:#F26B6B">
+<center>
+        <strong><nav>
+            <a href="{{ url_for('home') }}" style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   About &nbsp; &nbsp;</a>
+            <a href="{{ url_for('Logout') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Logout &nbsp;&nbsp;</a>
+            <a href="{{ url_for('foryou') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   For You &nbsp;&nbsp;</a>
+            <a href="{{ url_for('PersonalArea') }}" style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Personal Area &nbsp; &nbsp;</a>
+            <a href="{{ url_for('Search') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Search &nbsp;&nbsp;</a>
+
+        </nav></strong>    {% block content %}
+ <div class="container">
+<div class="row">
+  <!--  <center>
+        {% if note != '' %}
+            <h2>{{note}}</h2>
+        {% endif %}
+    </center>-->
+    <h2>Select a file to upload</h2>
+    <p>
+       <!-- {% if session.name %}
+              You are Register {{ session.name }} <a href="/logout">logout</a>.
+        {% else %}
+              You are not Register. <a href="/login">login</a>.
+        {% endif %}-->
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    <form method="post" action="/personalarea" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit" class="btn btn-info">
+        </p>
+    </form>
+    {% for hist in hists %}
+    <img src="{{hist}}" alt="{{hist}}" width="300" height="300"></br></br></br>
+    {% endfor %}
+
+
+
+</div>
+</div>
+{% endblock %}
+</center>
+</body>
+</html>

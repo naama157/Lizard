@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lizard</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='naama.png') }}">
+   <center>
+        <strong><nav>
+            <a href="{{ url_for('home') }}" style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   About &nbsp; &nbsp;</a>
+			<a href="{{ url_for('login') }}" style="color:#F26B6B; text-decoration: none; font-size:xxx-large;float:center">    Login &nbsp;&nbsp; </a>
+			<a href="{{ url_for('Register') }}"style="color:#F26B6B;text-decoration: none; font-size:xxx-large;float:center">   Register&nbsp; &nbsp; </a>
+
+        </nav></strong>
+   </center>
+
+        {% block content %}
+    {% endblock %}
+</head>
+<body style="background-image:url(static/wallpaper.jpg); color:#F26B6B">
+
+</body>
+</html>
